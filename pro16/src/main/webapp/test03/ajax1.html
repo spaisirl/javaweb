@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax1.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$("button").click(function() {
+		//console.log("click");
+		// 비동기 요청
+		// -> 현재 페이지를 유지한 상태로 요청
+		// url 요청 경로
+		// data 서버 쪽으로 전송하는 데이터 (JSON 자바 스크립트 객체 형식)
+		var url = "/AjaxTest1";
+		var data = {
+				"id" : "hong",
+				"pw" : "1234"
+		};
+		$.get(url, data, function(rData) {
+			console.log(rData);
+			var datas = rData.split("-");
+			var id = datas[0];
+			var pw = datas[1];
+			console.log("id:" + id);
+			console.log("pw:" + pw);
+			$("#idDiv").html(id);
+			$("#pwDiv").html(pw);
+		});
+		
+	});
+});
+</script>
+</head>
+<body>
+	<button type="button">클릭</button>
+	<div id="idDiv"></div>
+	<div id="pwDiv"></div>
+</body>
+</html>

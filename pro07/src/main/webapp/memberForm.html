@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원등록 양식</title>
+</head>
+<body>
+	<h1>회원 등록 양식</h1>
+	<div><a href="/member?command=list">회원목록</a></div>
+	<form name="frmRegister" action="/member" method="post">
+		<input type="hidden" name="command" value="add">
+		<table border='1'>
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" id="id" name="id" required></td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" id="pwd" name="pwd" required></td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input type="password" id="pwd2" required></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" id="name" name="name" required></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="email" id="email" name="email" ></td>
+			</tr>
+			<tr>
+				<td><button type="submit">작성완료</button></td>
+				<td><button type="reset">다시작성</button></td>
+			</tr>
+		</table>
+	</form>
+<script>
+	function checkForm() {
+		
+		// 아이디(영소문자/숫자 -10)
+		/*
+		var elId = document.getElementById("id");
+		var id = elId.value;
+		
+		console.log("id.length:", id.length);
+		if (id.length > 10) {
+			alert("아이디는 최대 10글자까지 가능합니다.");
+			return;
+		}
+		
+		for (var i = 0; i <id.length; i++) {
+			var ch = id.charAt(i);
+			if (!("a" < ch && ch <= "z" || "0" <= ch && ch <= "9")) {
+				alert("영소문자/숫자만 가능합니다.");
+				return;
+			}
+		}
+		
+		// 패스워드(영문자, 특수문자 존재 -10)
+		var elPwd = document.getElementById("pwd");
+		var pwd = elPwd.value;
+		
+		if (pwd.length > 10) {
+			alert("패스워드는 10글자까지 가능합니다.");
+			return;
+		}
+		
+		//패스워드 확인
+		var elPwd2 = document.getElementById("pwd2")
+		var pwd2 = elPwd2.value;
+		if (pwd != pwd2) {
+			alret("패스워드가 일치하지 않습니다.");
+			return;
+		}
+		
+		var arr = ["~", "^", "!", "@", "#", "%", "*", "(", ")"]
+		var isContain = false;
+		for (var i = 0; i < pwd.length; i++) {
+			var ch = pwd.charAt(i);
+			for (var j = 0; j < arr.length; j++) {
+				if (ch == arr[j]) {
+					isContain = true;
+					break;
+				}
+			}
+			
+		}
+		console.log("isContain:", isContain);
+		if (isContain == false) {
+			alert("패스워드는 특수문자를 포함해야 합니다.");
+			return;
+		}
+		
+		// 이름(16)
+		var elName = document.getElementById("name");
+		var name = elName.value;
+		if (name.length > 50) {
+			alert("이름은 16자까지 입력해주세요");
+			return;
+		}
+		*/
+
+		// 이메일
+		
+		document.frmRegister.submit();
+		
+	}
+</script>
+</body>
+
+</html>

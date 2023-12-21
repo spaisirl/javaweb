@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax2.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+$(function() {
+	$('#btnClick').click(function() {
+		$.get("/ajaxTest2", function(rData) {
+			console.log("rData:", rData);
+			console.log("rData:", $(rData));
+			var main = $(rData).find("main");
+			console.log("main:", main);
+			var books = main.find("book");
+			console.log("books:", books);
+			for(var v = 0; v < books.length; v++) {
+				var ulTag = "<ul>";
+				
+				console.log("book:", books[v]);
+				var book = $(books[v]);
+				var title = book.find("title").text();
+				var writer = book.find("writer").text();
+				var image = book.find("image").text();
+				console.log("title:", title);
+				console.log("writer:", writer);
+				console.log("image:", image);
+				
+				ulTag += "  <li>제목: " + title + "</li>";
+				ulTag += "  <li>저자: " + writer + "</li>";
+				ulTag += "  <li><img src='" + image + "'></li>";
+				
+				ulTag += "</ul>";
+				
+				$("#resultDiv").append(ulTag);
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<button id="btnClick" type="button">클릭</button>
+	<hr>
+	<div id="resultDiv">
+		
+	</div>
+</body>
+</html>

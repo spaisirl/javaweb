@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원등록 양식</title>
+</head>
+<body>
+	<h1>회원 등록 양식</h1>
+	<div><a href="/member?command=list">회원목록</a></div>
+	<form name="frmRegister" action="/member2.jsp" method="post">
+		<input type="hidden" name="command" value="add">
+		<table border='1'>
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" id="id" name="id" required></td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" id="pwd" name="pwd" required></td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input type="password" id="pwd2" required></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" id="name" name="name" required></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="email" id="email" name="email" ></td>
+			</tr>
+			<tr>
+				<td><button type="submit">작성완료</button></td>
+				<td><button type="reset">다시작성</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

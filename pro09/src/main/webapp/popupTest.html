@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>popupTest.html</title>
+</head>
+<body>
+	<button type="button" onclick="showPopUp()">새창띄우기</button>
+	
+<script>
+	// $(document).ready(function() {})
+	window.onload = function() {
+		var cook = document.cookie;
+		console.log(cook);
+		var cookies = cook.split(";");
+		var isShow = true;
+		for (var v = 0; v < cookies.length; v++) {
+			var c = cookies[v].trim().split("="); // [0]:이름, [1]:값
+			
+			if ( c[0] == "notShowPop" && c[1] == "true" ) {
+				isShow = false;
+				break;
+			}
+		}
+		console.log("isShow:" , isShow);
+		if (isShow == true) {
+			showPopUp();
+		}
+	};
+
+
+	function showPopUp() {
+		var specs = "width=400,height=500,";
+		specs += "left=300,top=300,";
+		specs += "history=no,resizable=no,status=no,";
+		specs += "menubar=no,scrollbars=yes";
+		window.open("popUp.html", "popUp", specs);
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>checkDupId.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function() {
+	$('#btnCheck').click(function() {
+		console.log("click");
+		var id = $('#id').val();
+		var url ="/checkDupId";
+		console.log(id);
+		var data = {"id" : id} // 키가 "id"이고 값이 변수의 내용인 키-값 쌍으로 var data = {"id" : id}명명된 JavaScript 객체를 생성 
+		$.get(url, id, function(result){
+			if (result == "true") {
+				$("#div").html("사용중인 아이디 입니다.")
+				.css("color", "red");
+				
+			} else {
+				$("#div").html("사용 가능한 아이디 입니다.")
+				.css("color", "green");
+			}
+		});
+	
+		
+	});
+});
+
+</script>
+</head>
+<body>
+	아이디: <input type="text" id="id">
+	<button type="button" id="btnCheck">중복체크</button>
+	<div id="div"></div>
+</body>
+</html>
